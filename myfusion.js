@@ -1,23 +1,30 @@
 /**
  * @author
  */
+
+////I will set up document ready
+//And load Google chart package
+//And then load the Google Fusion Table
+//I will then load the data
+//And then render the chart
+
 console.log("Get set");
 
-//UNEMDATA is the local name of the json file I just loaded
+//TheUnemploymentdata is the local name of the json file I just loaded
 function dataLoaded(TheUnemploymentdata) {
 
 	console.log(TheUnemploymentdata);
 	
-	var gDataTable = new google.visualization.DataTable();
+	var googleDataTable = new google.visualization.DataTable();
 	
 	//when I add columns, the first parameter is the data type in the column
 	//the second parameter is the name of the columns 
 	
-	gDataTable.addColumn('string', TheUnemploymentdata.columns[0]); //only works because it is a google.visualization object
+	googleDataTable.addColumn('string', TheUnemploymentdata.columns[0]); //only works because it is a google.visualization object
 	
-	gDataTable.addColumn('number', TheUnemploymentdata.columns[1]);
+	googleDataTable.addColumn('number', TheUnemploymentdata.columns[1]);
 	
-	gDataTable.addRows(TheUnemploymentdata.rows);//only works because this is a google.visualization object
+	googleDataTable.addRows(TheUnemploymentdata.rows);//only works because this is a google.visualization object
 	
 
 		
