@@ -20,7 +20,7 @@ function dataLoaded(TheUnemploymentdata) {
 	//when I add columns, the first parameter is the data type in the column
 	//the second parameter is the name of the columns 
 	
-	googleDataTable.addColumn('string', TheUnemploymentdata.columns[0]); //only works because it is a google.visualization object
+	googleDataTable.addColumn('string', TheUnemploymentdata.columns[0]); //this works because it is a google.visualization object
 	
 	googleDataTable.addColumn('number', TheUnemploymentdata.columns[1]);
 	
@@ -30,16 +30,16 @@ function dataLoaded(TheUnemploymentdata) {
 		
 	//create options object to actually customize the look if the chart
 	
-	var chartOptions = {
+	var mychartOptions = {
           title: 'Unemployment rate since 1980'
         };
 
 	
-	//tell it to create a line chart, and give it the 
-	var myChart = new google.visualization.LineChart(document.getElementById("MyChart"));
+	//this will create a line chart
+	var mygoogleChart = new google.visualization.LineChart(document.getElementById("MyChart"));
 	
-	//tell it to show the title
-	myChart.draw(gDataTable, chartOptions);
+	//this will tell it to show the title
+	mygoogleChart.draw(googleDataTable, mychartOptions);
 }
 
 function googleLoaded() {
@@ -49,7 +49,7 @@ function googleLoaded() {
 	//Instead of loading data from a static json file,
 	//I'm going to load it from a Google Fusion Table
 	
-	$.get("https://www.googleapis.com/fusiontables/v1/query?sql=SELECT+*+FROM+1I1IanRhd9RKxe1emSFkg2LgRFIa2GTqcKSntGhBN+WHERE+DATE%3E%271979-01-01%27+&key=AIzaSyBJWD4UulDQQMtDdtacaCD03MInkDsb61g", dataLoaded, "json");
+	$.get("https://www.googleapis.com/fusiontables/v1/query?sql=SELECT+*+FROM+1I1IanRhd9RKxe1emSFkg2LgRFIa2GTqcKSntGhBN+WHERE+DATE%3E%271979-01-01%27+&key=AIzaSyBJWD4UulDQQMtDdtacaCD03MInkDsb61g", mydataLoaded, "json");
 	
 	
 }
@@ -60,7 +60,7 @@ function pageLoad() {
 
 	console.log("go to page loaded");
 
-	//load the google visualization library
+	//this will load the google visualization library
 	google.load("visualization", '1', {
 		packages : ["corechart"],
 		callback : "googleLoaded"
@@ -73,6 +73,7 @@ function pageLoad() {
 
 }
 
-
+//this will call back the document 
+//it is the Maco Polo
 $(document).ready(pageLoad);
 
