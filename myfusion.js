@@ -1,7 +1,7 @@
 /**
  * @author
  */
-console.log("hi there");
+console.log("Get set");
 
 //UNEMDATA is the local name of the json file I just loaded
 function dataLoaded(UNEMPDATA) {
