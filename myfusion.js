@@ -4,27 +4,27 @@
 console.log("Get set");
 
 //UNEMDATA is the local name of the json file I just loaded
-function dataLoaded(UNEMPDATA) {
+function dataLoaded(TheUnemploymentdata) {
 
-	console.log(UNEMPDATA);
+	console.log(TheUnemploymentdata);
 	
 	var gDataTable = new google.visualization.DataTable();
 	
 	//when I add columns, the first parameter is the data type in the column
 	//the second parameter is the name of the columns 
 	
-	gDataTable.addColumn('string', UNEMPDATA.columns[0]); //only works because it is a google.visualization object
+	gDataTable.addColumn('string', TheUnemploymentdata.columns[0]); //only works because it is a google.visualization object
 	
-	gDataTable.addColumn('number', UNEMPDATA.columns[1]);
+	gDataTable.addColumn('number', TheUnemploymentdata.columns[1]);
 	
-	gDataTable.addRows(UNEMPDATA.rows);//only works because this is a google.visualization object
+	gDataTable.addRows(TheUnemploymentdata.rows);//only works because this is a google.visualization object
 	
 
 		
 	//create options object to actually customize the look if the chart
 	
 	var chartOptions = {
-          title: 'Unemployment since 1980'
+          title: 'Unemployment rate since 1980'
         };
 
 	
